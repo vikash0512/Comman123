@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+using namespace std;
+struct Student {
+    string name;
+    int rollNumber;
+    int marks[5];
+    float average;
+    string result;
+    string grade;
+};
+int main() {
+    Student student;
+    getline(cin, student.name);
+    cin >> student.rollNumber;
+    for (int i = 0; i < 5; i++) {
+        cin >> student.marks[i];
+    }
+    student.average = (student.marks[0]+student.marks[1]+student.marks[2]+student.marks[3]+student.marks[4])/5;
+    int count = 0;
+    for(int i=0;i<5;i++){
+        if(student.marks[i]<50){
+            count++;
+        }
+    }
+    if (student.marks[0] >= 50 && student.marks[1] >= 50 && student.marks[2] >= 50 && student.marks[3] >= 50 && student.marks[4] >= 50) {
+        student.result = "Pass";
+    } else if (count<=3) {
+        student.result = "Fail";
+    } 
+    if (student.average >= 75) {
+        student.grade = "Distinction";
+    } else if (student.average >= 60&&student.average<=74) {
+        student.grade = "First Class";
+    } else if (student.average >= 50&&student.average<=59) {
+        student.grade = "Second Class";
+    }
+    cout << "NAME: " << student.name << endl;
+    cout << "ROLL NO: " << student.rollNumber << endl;
+    cout << "RESULT: " << student.result << endl;
+    if(student.result=="Pass"){
+    cout << student.grade << endl;}
+    return 0;
+}

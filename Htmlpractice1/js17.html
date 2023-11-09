@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>Form Validation</title>
+<script>
+function abc() {
+  var x = (document.getElementById("abc").value);
+  var text = "a";
+  if (x < 1 || x > 10 || isNaN(x))
+    text = "not validated";
+  else
+    text = "validated";
+  document.getElementById("result").innerHTML = text;
+  
+}
+</script>
+</head>
+<body>
+<form>
+<input type="text" id="abc">
+<input type="Button" onclick="abc()" value="Submit">
+</form>
+<span id="result">Result</span>
+</body>
+</html>

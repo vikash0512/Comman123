@@ -1,0 +1,107 @@
+#include <iostream>
+using namespace std;
+enum class LetterType {
+    Vowel,
+    Consonant,
+    Invalid
+};
+
+class LetterAnalyzer {
+public:
+    static LetterType analyze(char c) {
+        if (isVowel(c)) {
+            return LetterType::Vowel;
+        } else if (isConsonant(c)) {
+            return LetterType::Consonant;
+        } else {
+            return LetterType::Invalid;
+        }
+    }
+
+private:
+    static bool isVowel(char c) {
+        c = toupper(c);
+        return (c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U');
+    }
+
+    static bool isConsonant(char c) {
+        return (isalpha(c) && !isVowel(c));
+    }
+};
+
+int main() {
+    char input;
+    cout << "Enter a character: ";
+    cin >> input;
+
+    LetterType result = LetterAnalyzer::analyze(input);
+
+    if (result == LetterType::Vowel) {
+        cout << "vowel" << endl;
+    } else if (result == LetterType::Consonant) {
+        cout << "consonant" << endl;
+    } else {
+        cout << "Invalid input" << endl;
+    }
+
+    return 0;
+}
+
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+union Customers {
+    char name[100];
+    int accountNumber;
+    float balance;
+};
+void increment_balance(Customers c[], int n) {
+    for (int i = 0; i < n; i++) {
+        if (c[i].balance > 1000) {
+            cout << c[i].balance + 100 << " ";
+        }
+    }
+    cout << endl;
+}
+int main() {
+    int N;
+    cin >> N;
+    Customers customers[N];
+    for (int i = 0; i < N; i++) {
+        cin >> customers[i].name >> customers[i].accountNumber >> customers[i].balance;
+    }
+    increment_balance(customers, N);
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+const double PI = 3.14;
+struct Circle {
+    double radius;
+};
+int main() {
+    Circle garden;
+    cin >> garden.radius;
+    double circumference = 2 * PI * garden.radius;
+    double area = PI * garden.radius * garden.radius;
+    cout << fixed << setprecision(2);
+    cout << circumference << endl;
+    cout<< area << endl;
+    return 0;
+}

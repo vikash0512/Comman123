@@ -1,0 +1,38 @@
+<html>
+<head>
+<script>
+function abc(){
+
+var length = parseFloat(prompt("Enter the length of the rectangle:"));
+var width = parseFloat(prompt("Enter the width of the rectangle:"));
+
+
+var area = length * width;
+
+
+if (area > 100) {
+  alert("The area is large!");
+} else {
+  var confirmation = confirm("The area is small. Do you want to continue?");
+  if (confirmation) {
+    while (area <= 100) {
+      var newLength = parseFloat(prompt("Enter a new length:"));
+      var newWidth = parseFloat(prompt("Enter a new width:"));
+      length = newLength;
+      width = newWidth;
+
+      area = length * width;
+    }
+    alert("The new area is: " + area);
+  } else {
+    alert("Operation canceled.");
+  }
+}
+}
+</script>
+</head>
+<body>
+
+<button tupe="button" onclick="abc()">Area</button>
+</body>
+<html>

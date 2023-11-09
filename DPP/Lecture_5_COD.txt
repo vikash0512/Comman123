@@ -1,0 +1,163 @@
+#include <iostream>
+#include <iomanip>
+class TemperatureConverter {
+    double celsius;
+public:
+    TemperatureConverter(double c);
+    double getCelsius();
+    double getFahrenheit();
+    double getKelvin();
+};
+TemperatureConverter::TemperatureConverter(double c) {
+    celsius = c;
+}
+double TemperatureConverter::getCelsius() {
+    return celsius;
+}
+double TemperatureConverter::getFahrenheit() {
+    return (celsius * 9 / 5) + 32;
+}
+double TemperatureConverter::getKelvin() {
+    return celsius + 273.15;
+}
+int main() {
+    double celsius;
+    std::cin >> celsius;
+    TemperatureConverter converter(celsius);
+    std::cout << std::fixed << std::setprecision(2);
+    std::cout << "Temperature in Fahrenheit: " << converter.getFahrenheit() << std::endl;
+    std::cout << "Temperature in Kelvin: " << converter.getKelvin() << std::endl;
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+inline int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+int main() {
+    int x, y;
+    cin >> x >> y;
+    int result = gcd(x, y);
+    cout << result << endl;
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <iostream>
+#include <iomanip>
+
+class Shop {
+private:
+    static double totalSales;
+
+public:
+    static void addSales(double salesAmount) {
+        totalSales += salesAmount;
+    }
+
+    static double getTotalSales() {
+        return totalSales;
+    }
+};
+
+double Shop::totalSales = 0;
+
+int main() {
+    int n;
+    std::cout << "Enter the number of sale instances: ";
+    std::cin >> n;
+
+    double totalAmount = 0;
+
+    for (int i = 1; i <= n; i++) {
+        double amount;
+        std::cout << "Enter sales amount for instance " << i << ": ";
+        std::cin >> amount;
+
+        Shop::addSales(amount);
+        totalAmount += amount;
+    }
+
+    std::cout << std::fixed << std::setprecision(2);
+    std::cout << "Total sales amount: " << Shop::getTotalSales() << std::endl;
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+class phone_number {
+public:
+    std::string num;
+    void input_num();
+    void output() {
+        std::cout << "Your entered number is:" << num << std::endl;
+    }
+    static inline void check_num(std::string num);
+};
+inline void phone_number::check_num(std::string num) {
+    if (num.length() != 10 || num.find_first_not_of("0123456789") != std::string::npos) {
+        std::cout << "Entered Phone number is wrong" << std::endl;
+        std::cout << "Your entered number is:" << num << std::endl;
+        exit(1);
+    }
+}
+void phone_number::input_num(){
+    std::cin>>num;
+}
+int main() {
+    phone_number ph;
+    ph.input_num();
+    phone_number::check_num(ph.num);
+    ph.output();
+    return 0;
+}
