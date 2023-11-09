@@ -288,7 +288,7 @@ int main(){
 //    insertafternode(head->next->next, 33);
 //    printf("Linked List: ");
 
-   // print list
+   // print lists
 //    printList();
 //    deleteatbegin();
 //    deleteatend();
